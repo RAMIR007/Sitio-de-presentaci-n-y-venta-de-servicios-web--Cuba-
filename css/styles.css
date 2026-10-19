@@ -463,6 +463,50 @@ ul {
   font-weight: bold;
 }
 
+.paquete-ejemplos {
+  background-color: rgba(15, 23, 42, 0.45);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.paquete-ejemplos h5 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.paquete-ejemplos ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.paquete-ejemplos li {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.paquete-ejemplos li::before {
+  content: '👉';
+  position: absolute;
+  left: 0;
+  font-size: 0.75rem;
+}
+
+.paquete-ejemplos strong {
+  color: var(--color-text-main);
+}
+
 .paquete-footer .btn {
   width: 100%;
 }
