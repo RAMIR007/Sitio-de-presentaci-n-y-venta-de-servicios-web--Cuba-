@@ -812,11 +812,6 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* El paquete destacado toma ambas columnas o destaca */
-  .paquete-card:nth-child(3) {
-    grid-column: span 2;
-  }
-
   .pasos-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -851,7 +846,7 @@ ul {
    ========================================================================== */
 @media (min-width: 1024px) {
   .container {
-    max-width: 1140px;
+    max-width: 1200px;
   }
 
   /* Menú normal en desktop */
@@ -878,16 +873,17 @@ ul {
   }
 
   .paquetes-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     align-items: stretch;
+    gap: var(--space-md);
   }
 
-  .paquete-card:nth-child(3) {
-    grid-column: span 1;
+  .paquete-card {
+    padding: var(--space-md);
   }
 
   .paquete-destacado {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 
   .pasos-grid {
