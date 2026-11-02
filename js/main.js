@@ -2,32 +2,37 @@
  * JavaScript mínimo y accesible (Vanilla JS)
  * Mejora progresiva: el sitio funciona completamente sin JS.
  */
+document.documentElement.classList.add('js');
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Menú móvil interactivo con accesibilidad ARIA
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
 
   if (navToggle && mainNav) {
+    const closeMenu = () => {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+      mainNav.classList.remove('is-open');
+    };
+
     navToggle.addEventListener('click', () => {
       const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
       navToggle.setAttribute('aria-expanded', !isExpanded);
-      mainNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-label', isExpanded ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
+      mainNav.classList.toggle('is-open', !isExpanded);
     });
 
     // Cerrar menú al hacer clic en un enlace de navegación
     const navLinks = mainNav.querySelectorAll('a');
     navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('is-open');
-      });
+      link.addEventListener('click', closeMenu);
     });
 
     // Cerrar menú al presionar Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mainNav.classList.contains('is-open')) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        mainNav.classList.remove('is-open');
+        closeMenu();
         navToggle.focus();
       }
     });

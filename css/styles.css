@@ -12,12 +12,12 @@
   --color-primary: #2563eb;       /* Azul enérgico */
   --color-primary-hover: #1d4ed8;
   --color-accent: #38bdf8;        /* Sky cyan para detalles */
-  --color-whatsapp: #22c55e;      /* Verde WhatsApp oficial */
-  --color-whatsapp-hover: #16a34a;
+  --color-whatsapp: #15803d;
+  --color-whatsapp-hover: #166534;
 
   --color-text-main: #f8fafc;     /* Slate 50 */
   --color-text-muted: #94a3b8;    /* Slate 400 */
-  --color-text-dim: #64748b;      /* Slate 500 */
+  --color-text-dim: #94a3b8;       /* Slate 400 */
   
   /* Tipografía del sistema (0 descargas de fuentes para velocidad máxima) */
   --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -74,6 +74,11 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+:where(a, button, summary):focus-visible {
+  outline: 3px solid var(--color-border-focus);
+  outline-offset: 3px;
 }
 
 ul {
@@ -180,14 +185,15 @@ ul {
   background-color: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
-  height: 64px;
+  min-height: 64px;
 }
 
 .header-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  min-height: 64px;
 }
 
 .logo {
@@ -218,7 +224,7 @@ ul {
 }
 
 .logo-text .logo-tag {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--color-text-muted);
   margin-left: 0.35rem;
@@ -234,7 +240,7 @@ ul {
   padding: var(--space-xs);
   min-width: 44px;
   min-height: 44px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
@@ -259,19 +265,40 @@ ul {
   top: 7px;
 }
 
-/* Menú desplegable en móvil (oculto por defecto) */
+/* La navegación queda visible si JavaScript no carga. */
 .nav {
+  position: static;
+  flex: 1 0 100%;
+  padding: 0 0 var(--space-md);
+  display: block;
+}
+
+html.js .header {
+  height: 64px;
+}
+
+html.js .header-container {
+  height: 100%;
+  flex-wrap: nowrap;
+}
+
+html.js .nav-toggle {
+  display: flex;
+}
+
+html.js .nav {
   position: absolute;
   top: 64px;
   left: 0;
   right: 0;
+  flex: none;
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   padding: var(--space-lg);
   display: none;
 }
 
-.nav.is-open {
+html.js .nav.is-open {
   display: block;
 }
 
@@ -351,7 +378,7 @@ ul {
 }
 
 .hero-nota-pago {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--color-text-dim);
   max-width: 520px;
   line-height: 1.45;
@@ -388,7 +415,7 @@ ul {
 
 .paquete-etiqueta {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -410,14 +437,14 @@ ul {
 }
 
 .paquete-tipo {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-accent);
   margin-bottom: var(--space-md);
 }
 
 .paquete-descripcion {
   color: var(--color-text-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-bottom: var(--space-lg);
 }
 
@@ -438,20 +465,12 @@ ul {
 }
 
 .paquete-condicion {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
-.paquete-cup-ref {
-  font-size: 0.8rem;
-  color: var(--color-text-dim);
-  border-top: 1px dashed var(--color-border);
-  margin-top: 0.35rem;
-  padding-top: 0.35rem;
-}
-
 .paquete-plazo {
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-bottom: var(--space-md);
   color: var(--color-text-main);
 }
@@ -462,7 +481,7 @@ ul {
 }
 
 .paquete-incluye h4 {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: var(--space-sm);
   color: var(--color-accent);
@@ -475,7 +494,7 @@ ul {
 }
 
 .paquete-incluye li {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
   position: relative;
   padding-left: 1.4rem;
@@ -487,50 +506,6 @@ ul {
   left: 0;
   color: var(--color-whatsapp);
   font-weight: bold;
-}
-
-.paquete-ejemplos {
-  background-color: rgba(15, 23, 42, 0.45);
-  border: 1px dashed var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-sm) var(--space-md);
-  margin-top: var(--space-md);
-}
-
-.paquete-ejemplos h5 {
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-accent);
-  margin-bottom: var(--space-xs);
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.paquete-ejemplos ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.paquete-ejemplos li {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  line-height: 1.45;
-  padding-left: 1.1rem;
-  position: relative;
-}
-
-.paquete-ejemplos li::before {
-  content: '👉';
-  position: absolute;
-  left: 0;
-  font-size: 0.75rem;
-}
-
-.paquete-ejemplos strong {
-  color: var(--color-text-main);
 }
 
 .paquete-footer .btn {
@@ -581,7 +556,7 @@ ul {
 }
 
 .paso-descripcion {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
@@ -625,7 +600,7 @@ ul {
 }
 
 .trabajo-tipo {
-  font-size: 0.75rem;
+  font-size: 1rem;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -641,7 +616,7 @@ ul {
 }
 
 .trabajo-descripcion {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
   line-height: 1.5;
 }
@@ -702,7 +677,7 @@ ul {
 .faq-respuesta {
   padding: 0 var(--space-lg) var(--space-md);
   color: var(--color-text-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -750,14 +725,14 @@ ul {
 }
 
 .nota-pagos-titulo {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--color-text-main);
   margin-bottom: var(--space-xs);
 }
 
 .nota-pagos-texto {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
   line-height: 1.55;
 }
@@ -769,7 +744,7 @@ ul {
   border-top: 1px solid var(--color-border);
   padding: var(--space-lg) 0;
   background-color: var(--color-bg);
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--color-text-dim);
 }
 
@@ -849,6 +824,15 @@ ul {
     max-width: 1200px;
   }
 
+  .header {
+    height: 64px;
+  }
+
+  .header-container {
+    height: 100%;
+    flex-wrap: nowrap;
+  }
+
   /* Menú normal en desktop */
   .nav-toggle {
     display: none;
@@ -856,10 +840,26 @@ ul {
 
   .nav {
     position: static;
-    display: block;
+    flex: 0 1 auto;
     background: transparent;
     border: none;
     padding: 0;
+  }
+
+  html.js .nav {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    flex: 0 1 auto;
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: block;
+  }
+
+  html.js .nav-toggle {
+    display: none;
   }
 
   .nav-list {
@@ -873,7 +873,7 @@ ul {
   }
 
   .paquetes-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     align-items: stretch;
     gap: var(--space-md);
   }

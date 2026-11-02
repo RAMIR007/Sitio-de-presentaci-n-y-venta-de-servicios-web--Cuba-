@@ -6,10 +6,9 @@ Sitio web estático, ultra ligero y optimizado para la realidad de conectividad 
 
 ## ⚡ Métricas de Rendimiento y Peso
 
-- **Peso total del sitio (código + imágenes):** ~70 KB (límite máximo permitido: 500 KB).
+- **Peso total del sitio (código + imágenes):** ~64 KB (límite máximo permitido: 500 KB).
 - **Imágenes demo:** En formato WebP optimizado (< 9 KB cada una).
-- **Dependencias externas:** 0 (sin fuentes externas pesadas, sin librerías ni frameworks).
-- **Carga estimada:** Menos de 1 segundo incluso bajo conexiones 3G lentas.
+- **Dependencias externas:** Ninguna (sin fuentes descargables, librerías ni frameworks); el tiempo real de carga depende del dispositivo, la red y el hosting.
 
 ---
 
@@ -25,7 +24,7 @@ Sitio web estático, ultra ligero y optimizado para la realidad de conectividad 
 ├── img/
 │   ├── demo-1.webp     # Mockup de muestra: Hostal Colonial Havana (8.2 KB)
 │   ├── demo-2.webp     # Mockup de muestra: Café & Bistro El Malecón (7.7 KB)
-│   └── demo-3.webp     # Mockup de muestra: AutoServicio Taller (7.6 KB)
+│   └── demo-3.webp     # Mockup de muestra: AutoServicio Reparaciones (7.6 KB)
 ├── AGENTS.md           # Especificaciones del proyecto y reglas de negocio
 └── README.md           # Guía de edición, personalización y despliegue
 ```
@@ -41,7 +40,7 @@ Busca en `index.html` la cadena:
 ```text
 53XXXXXXXXX
 ```
-Y reemplázala por tu número de teléfono real de WhatsApp (con código de país 53, por ejemplo `5351234567`).
+Y reemplázala por tu número real de WhatsApp, incluido el código de país 53.
 
 Aparece en:
 1. Botón Hero: `href="https://wa.me/53XXXXXXXXX?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20un%20sitio%20web"`
@@ -69,8 +68,8 @@ El sitio está listo para alojarse de forma 100% gratuita y ultrarrápida en **C
 4. En **Build settings**:
    - **Framework preset:** None
    - **Build command:** *(dejar vacío)*
-   - **Build output directory:** `/` *(o dejar la raíz del repositorio)*
-5. Haz clic en **Save and Deploy**. En pocos segundos tendrás una URL `.pages.dev` con HTTPS gratuito y CDN global con caché local en Cuba/Caribe.
+   - **Build output directory:** `.` (raíz del repositorio)
+5. Haz clic en **Save and Deploy**. Cloudflare Pages publicará el sitio en una URL `.pages.dev`.
 
 ### Método B — Subida directa (Direct Upload)
 1. Ve a **Workers & Pages** > **Pages** > **Upload assets**.
