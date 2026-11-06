@@ -6,7 +6,7 @@ Sitio web estático, ultra ligero y optimizado para la realidad de conectividad 
 
 ## ⚡ Métricas de Rendimiento y Peso
 
-- **Peso total del sitio (código + imágenes):** ~106 KB (límite máximo permitido: 500 KB).
+- **Peso total del sitio (código + imágenes):** ~114 KB (límite máximo permitido: 500 KB).
 - **Imágenes de galería:** WebP optimizado (menos de 150 KB cada una).
 - **Dependencias externas:** Ninguna (sin fuentes descargables, librerías ni frameworks); el tiempo real de carga depende del dispositivo, la red y el hosting.
 
@@ -22,7 +22,7 @@ Sitio web estático, ultra ligero y optimizado para la realidad de conectividad 
 ├── js/
 │   └── main.js         # Menú hamburguesa accesible y comportamiento coordinado de FAQ
 ├── img/
-│   ├── hostal-la-estancia.webp # Captura WebP del sitio Hostal La Estancia (~12 KB)
+│   ├── hostal-la-estancia.webp # Captura WebP del sitio Hostal La Estancia (~20 KB)
 │   ├── ramirox-market.webp     # Captura WebP de RamiroX Market (~28 KB)
 │   ├── demo-1.webp     # Mockup de muestra: Hostal Colonial Havana (8.2 KB)
 │   ├── demo-2.webp     # Mockup de muestra: Café & Bistro El Malecón (7.7 KB)
