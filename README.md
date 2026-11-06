@@ -6,8 +6,8 @@ Sitio web estático, ultra ligero y optimizado para la realidad de conectividad 
 
 ## ⚡ Métricas de Rendimiento y Peso
 
-- **Peso total del sitio (código + imágenes):** ~64 KB (límite máximo permitido: 500 KB).
-- **Imágenes demo:** En formato WebP optimizado (< 9 KB cada una).
+- **Peso total del sitio (código + imágenes):** ~106 KB (límite máximo permitido: 500 KB).
+- **Imágenes de galería:** WebP optimizado (menos de 150 KB cada una).
 - **Dependencias externas:** Ninguna (sin fuentes descargables, librerías ni frameworks); el tiempo real de carga depende del dispositivo, la red y el hosting.
 
 ---
@@ -22,6 +22,8 @@ Sitio web estático, ultra ligero y optimizado para la realidad de conectividad 
 ├── js/
 │   └── main.js         # Menú hamburguesa accesible y comportamiento coordinado de FAQ
 ├── img/
+│   ├── hostal-la-estancia.webp # Captura WebP del sitio Hostal La Estancia (~12 KB)
+│   ├── ramirox-market.webp     # Captura WebP de RamiroX Market (~28 KB)
 │   ├── demo-1.webp     # Mockup de muestra: Hostal Colonial Havana (8.2 KB)
 │   ├── demo-2.webp     # Mockup de muestra: Café & Bistro El Malecón (7.7 KB)
 │   └── demo-3.webp     # Mockup de muestra: AutoServicio Reparaciones (7.6 KB)
@@ -53,7 +55,7 @@ Aparece en:
 Busca `tu-correo@ejemplo.com` en `index.html` y reemplázalo por tu correo electrónico real.
 
 ### 3. Modificar o agregar proyectos reales
-En la sección `<section id="trabajos">`, puedes sustituir las imágenes en `img/` y actualizar los títulos y descripciones conforme vayas completando proyectos con clientes reales.
+En la sección `<section id="trabajos">`, actualiza la tarjeta del proyecto y su imagen WebP en `img/`. Añade un enlace solo cuando exista una URL pública verificada.
 
 ---
 
