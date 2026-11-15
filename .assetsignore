@@ -1,0 +1,8 @@
+README.md
+AGENTS.md
+wrangler.toml
+.assetsignore
+.git/**
+.github/**
+node_modules/**
+img/demo-*.webp
