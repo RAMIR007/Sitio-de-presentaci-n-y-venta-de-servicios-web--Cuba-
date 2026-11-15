@@ -1,91 +1,53 @@
-# Sitio de Presentación y Venta de Servicios Web (Cuba)
+# RX Web Studio
 
-Sitio web estático, ultra ligero y optimizado para la realidad de conectividad en Cuba. Desarrollado con HTML5 semántico puro, CSS moderno mobile-first y JavaScript mínimo de mejora progresiva sin dependencias externas.
+Sitio web estático de presentación de servicios de diseño y desarrollo web. Está construido con HTML, CSS y JavaScript, sin dependencias de frameworks ni proceso de compilación.
 
----
+## Tecnologías
 
-## ⚡ Métricas de Rendimiento y Peso
+- HTML5 semántico.
+- CSS moderno con diseño responsive.
+- JavaScript nativo para interacciones de la interfaz.
+- Imágenes WebP locales.
 
-- **Peso total del sitio (código + imágenes):** ~114 KB (límite máximo permitido: 500 KB).
-- **Imágenes de galería:** WebP optimizado (menos de 150 KB cada una).
-- **Dependencias externas:** Ninguna (sin fuentes descargables, librerías ni frameworks); el tiempo real de carga depende del dispositivo, la red y el hosting.
-
----
-
-## 📁 Estructura del Proyecto
+## Estructura principal
 
 ```text
 .
-├── index.html          # Estructura semántica completa con las 6 secciones requeridas
+├── index.html
 ├── css/
-│   └── styles.css      # Sistema de diseño, variables :root y media queries mobile-first
+│   └── styles.css
 ├── js/
-│   └── main.js         # Menú hamburguesa accesible y comportamiento coordinado de FAQ
+│   └── main.js
 ├── img/
-│   ├── hostal-la-estancia.webp # Captura WebP del sitio Hostal La Estancia (~20 KB)
-│   ├── ramirox-market.webp     # Captura WebP de RamiroX Market (~28 KB)
-│   ├── demo-1.webp     # Mockup de muestra: Hostal Colonial Havana (8.2 KB)
-│   ├── demo-2.webp     # Mockup de muestra: Café & Bistro El Malecón (7.7 KB)
-│   └── demo-3.webp     # Mockup de muestra: AutoServicio Reparaciones (7.6 KB)
-├── AGENTS.md           # Especificaciones del proyecto y reglas de negocio
-└── README.md           # Guía de edición, personalización y despliegue
+│   ├── hostal-la-estancia.webp
+│   └── ramirox-market.webp
+└── README.md
 ```
 
----
+La sección de proyectos incluye enlaces a seis trabajos publicados. Algunas tarjetas utilizan recursos gráficos creados con CSS; no son capturas de pantalla de los sitios enlazados. Los recursos de demostraciones anteriores que aún permanezcan en el repositorio no forman parte del portafolio actual.
 
-## ✏️ Guía de Personalización
+## Datos de contacto
 
-Antes de publicar el sitio, realiza los siguientes cambios en `index.html`:
+Los enlaces de contacto del sitio están configurados con el WhatsApp y el correo vigentes del propietario. Para actualizarlos, edita los enlaces `wa.me` y `mailto:` en `index.html`.
 
-### 1. Reemplazar el número de WhatsApp
-Busca en `index.html` la cadena:
-```text
-53XXXXXXXXX
+## Edición y pruebas locales
+
+No se necesita instalar dependencias ni ejecutar un comando de build. Puedes abrir `index.html` en el navegador o iniciar un servidor local desde la raíz del proyecto:
+
+```bash
+python -m http.server 8000
 ```
-Y reemplázala por tu número real de WhatsApp, incluido el código de país 53.
 
-Aparece en:
-1. Botón Hero: `href="https://wa.me/53XXXXXXXXX?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20un%20sitio%20web"`
-2. Paquete 1: `href="https://wa.me/53XXXXXXXXX?text=Hola,%20me%20interesa%20el%20paquete%20Presencia%20Esencial"`
-3. Paquete 2: `href="https://wa.me/53XXXXXXXXX?text=Hola,%20me%20interesa%20el%20paquete%20Sitio%20Profesional"`
-4. Paquete 3: `href="https://wa.me/53XXXXXXXXX?text=Hola,%20me%20interesa%20el%20paquete%20Tienda%20con%20pedidos"`
-5. Sección Contacto: `href="https://wa.me/53XXXXXXXXX"`
+Después abre `http://localhost:8000`.
 
-### 2. Configurar el correo de contacto
-Busca `tu-correo@ejemplo.com` en `index.html` y reemplázalo por tu correo electrónico real.
+Antes de publicar cambios, comprueba:
+- La navegación y el menú en móvil.
+- La visualización de las seis tarjetas del portafolio.
+- Los enlaces de cada proyecto, WhatsApp, correo y LinkedIn.
+- La carga de las imágenes locales y la consola del navegador.
 
-### 3. Modificar o agregar proyectos reales
-En la sección `<section id="trabajos">`, actualiza la tarjeta del proyecto y su imagen WebP en `img/`. Añade un enlace solo cuando exista una URL pública verificada.
+## Publicación
 
----
+El sitio se sirve actualmente desde un Cloudflare Worker. Los cambios deben probarse primero en una vista previa o entorno separado y verificarse antes de actualizar el Worker público. No se debe asumir que el flujo de despliegue de Cloudflare Pages aplica a este proyecto.
 
-## 🚀 Despliegue Gratuito en Cloudflare Pages
-
-El sitio está listo para alojarse de forma 100% gratuita y ultrarrápida en **Cloudflare Pages**.
-
-### Método A — Conectar con GitHub (Recomendado)
-1. Sube este repositorio a tu cuenta de [GitHub](https://github.com/).
-2. Inicia sesión en [Cloudflare Dashboard](https://dash.cloudflare.com/) y ve a **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
-3. Selecciona tu repositorio.
-4. En **Build settings**:
-   - **Framework preset:** None
-   - **Build command:** *(dejar vacío)*
-   - **Build output directory:** `.` (raíz del repositorio)
-5. Haz clic en **Save and Deploy**. Cloudflare Pages publicará el sitio en una URL `.pages.dev`.
-
-### Método B — Subida directa (Direct Upload)
-1. Ve a **Workers & Pages** > **Pages** > **Upload assets**.
-2. Arrastra la carpeta del proyecto completa (asegúrate de que `index.html` quede en la raíz).
-3. Haz clic en **Deploy site**.
-
----
-
-## 🛠️ Pruebas Locales
-
-Para probar el sitio en tu máquina:
-- Puedes abrir `index.html` directamente en tu navegador web.
-- O iniciar un servidor estático ligero con Python:
-  ```bash
-  python -m http.server 8000
-  ```
-  Y abrir `http://localhost:8000` en tu navegador.
+La publicación en producción debe realizarse únicamente después de revisar la vista móvil y escritorio y aprobar expresamente los cambios.
