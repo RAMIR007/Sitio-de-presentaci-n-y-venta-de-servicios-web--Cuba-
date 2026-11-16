@@ -5,4 +5,5 @@ wrangler.toml
 .git/**
 .github/**
 node_modules/**
+scripts/**
 img/demo-*.webp
