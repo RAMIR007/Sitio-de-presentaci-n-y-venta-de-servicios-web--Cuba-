@@ -52,7 +52,26 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
   font-size: 100%;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-text-main);
+  color: var(--color-bg);
+  font-weight: 700;
+  transform: translateY(-180%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 body {
@@ -97,6 +116,7 @@ ul {
 /* Secciones globales */
 .seccion {
   padding: var(--space-2xl) 0;
+  scroll-margin-top: 5rem;
 }
 
 .seccion-header {
@@ -579,6 +599,13 @@ html.js .nav.is-open {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trabajo-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-lg);
 }
 
 .trabajo-img-wrapper {
@@ -938,3 +965,18 @@ html.js .nav.is-open {
 .placeholder-arte { background: radial-gradient(circle at 25% 25%, #a78bfa, #6d28d9 55%, #2e1065); }
 .placeholder-renova { background: radial-gradient(circle at 70% 25%, #84cc16, #3f6212 52%, #1a2e05); }
 .placeholder-konfort { background: radial-gradient(circle at 25% 25%, #d6b98c, #8b5e3c 55%, #422006); }
+
+
+/* Respeta la preferencia del sistema para reducir movimiento. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
