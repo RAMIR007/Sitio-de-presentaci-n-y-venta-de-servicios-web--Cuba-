@@ -1,0 +1,35 @@
+name: RX Web Studio quality checks
+
+on:
+  push:
+    branches:
+      - feat/portfolio-real-projects
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rx-web-studio-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Static site quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Check JavaScript syntax
+        run: node --check js/main.js
+
+      - name: Validate HTML structure and local assets
+        run: node scripts/quality-check.mjs
