@@ -29,6 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', closeMenu);
     });
 
+    // Cerrar el menú al tocar fuera de la navegación.
+    document.addEventListener('pointerdown', (event) => {
+      if (!mainNav.contains(event.target) && !navToggle.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    // Mantener el estado ARIA sincronizado al pasar a escritorio.
+    const desktopMedia = window.matchMedia('(min-width: 1024px)');
+    desktopMedia.addEventListener('change', (event) => {
+      if (event.matches) closeMenu();
+    });
+
     // Cerrar menú al presionar Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mainNav.classList.contains('is-open')) {
