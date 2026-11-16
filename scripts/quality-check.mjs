@@ -59,8 +59,8 @@ check(/<meta\s+name=["']description["']/i.test(html), 'Falta meta description.')
 check(/<meta\s+property=["']og:title["']/i.test(html), 'Falta Open Graph title.');
 check(/@media[^{}]*\b(?:min|max)-width\s*:/i.test(css), 'No se encontraron media queries responsive.');
 check(existsSync(jsPath), 'No se encontró js/main.js.');
-check(/^scripts\\/\\*\\*$/m.test(assetsIgnore), 'La carpeta scripts/ debe excluirse de los assets públicos.');
-check(/^\\.github\\/\\*\\*$/m.test(assetsIgnore), 'La configuración de GitHub debe excluirse de los assets públicos.');
+check(/^scripts\/\*\*$/m.test(assetsIgnore), 'La carpeta scripts/ debe excluirse de los assets públicos.');
+check(/^\.github\/\*\*$/m.test(assetsIgnore), 'La configuración de GitHub debe excluirse de los assets públicos.');
 
 if (errors.length) {
   console.error('RX Web Studio: controles de calidad fallidos');
