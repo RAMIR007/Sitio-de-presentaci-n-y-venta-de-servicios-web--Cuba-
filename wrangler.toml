@@ -1,0 +1,8 @@
+name = "sitio-de-presentacion-y-venta-de-servicios-web--cuba"
+compatibility_date = "2026-11-15"
+workers_dev = true
+preview_urls = true
+previews = {}
+
+[assets]
+directory = "."
