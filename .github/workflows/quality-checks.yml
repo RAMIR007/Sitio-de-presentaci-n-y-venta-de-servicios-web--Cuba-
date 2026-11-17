@@ -3,6 +3,7 @@ name: RX Web Studio quality checks
 on:
   push:
     branches:
+      - main
       - feat/portfolio-real-projects
   pull_request:
     branches:
